@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto Russia</title>
+</head>
+<body class="page">
+  <header class="header">
+    <a href="#" class="header__link">
+      <img src="./images/logo/logo.svg" alt="Место-логотип" class="header__logo">
+    </a>
+  </header>
+  <main>
+    <section class="profile">
+      <div class="profile__wrapper">
+        <img src="./images/profile__avatar.jpg" alt="Аватар" class="profile__avatar">
+        <div class="profile__info-wrapper">
+          <div class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <p class="profile__description">Исследователь океана</p>
+          </div>
+          <button class="profile__edit-button"></button>
+        </div>
+      </div>
+      <button class="profile__add-button"></button>
+    </section>
+    <section class="elements" aria-label="Список-фотографий">
+      <ul class="elements__list">
+        <li class="element">
+          <img src="./images/photo-1.jpg" alt="Вулкан-Креницына" class="element__photo">
+          <div class="element__info">
+            <p class="element__caption">Вулкан Креницына</p>
+            <button class="element__like"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img src="./images/photo-2.jpg" alt="Гамсутль" class="element__photo">
+          <div class="element__info">
+            <p class="element__caption">Гамсутль, Дагестан</p>
+            <button class="element__like"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img src="./images/photo-3.jpg" alt="Город-мёртвых" class="element__photo">
+          <div class="element__info">
+            <p class="element__caption">«Город мёртвых», Северная Осетия-Алания</p>
+            <button class="element__like"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img src="./images/photo-4.jpg" alt="Кутхины-Баты" class="element__photo">
+          <div class="element__info">
+            <p class="element__caption">Кутхины Баты, Камчатка</p>
+            <button class="element__like"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img src="./images/photo-5.jpg" alt="Чарские-пески" class="element__photo">
+          <div class="element__info">
+            <p class="element__caption">Чарские пески, Забайкалье</p>
+            <button class="element__like"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img src="./images/photo-6.jpg" alt="Оймякон" class="element__photo">
+          <div class="element__info">
+            <p class="element__caption">Оймякон, Якутия</p>
+            <button class="element__like"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+  </footer>
+  <section class="popup" aria-label="Окно-редактирования">
+    <form class="popup__container">
+      <p class="popup__head">Редактировать профиль</p>
+      <input type="text" class="popup__input popup__name" value="Жак-Ив Кусто">
+      <input type="text" class="popup__input popup__job" value="Исследователь океана">
+      <button type="submit" class="popup__save-btn">Сохранить</button>
+      <button class="popup__close-btn"></button>
+    </form>
+  </section>
+  <script src="./js/index.js"></script>
+</body>
+</html>

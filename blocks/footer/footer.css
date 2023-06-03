@@ -1,0 +1,7 @@
+.footer {
+  box-sizing: border-box;
+  max-width: 68.75%;
+  padding: 74px 0 60px;
+  border-bottom: 1px solid #545454;
+  margin-inline: auto;
+}
