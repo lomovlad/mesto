@@ -2,26 +2,25 @@ const profile = document.querySelector('.profile');
 // Кнопки
 const editButton = profile.querySelector('.profile__edit-button');
 // Поля профиля
-let profileName = profile.querySelector('.profile__name');
-let profileJob = profile.querySelector('.profile__description');
+const profileName = profile.querySelector('.profile__name');
+const profileJob = profile.querySelector('.profile__description');
 // Попап
 const popup = document.querySelector('.popup');
 const closePopupBtn = popup.querySelector('.popup__close-btn');
 // Форма
-let formElement = popup.querySelector('.popup__container');
-let inputName = formElement.querySelector('.popup__name');
-let inputJob = formElement.querySelector('.popup__job');
+const formElement = popup.querySelector('.popup__form');
+const inputName = formElement.querySelector('.popup__input_user_name');
+const inputJob = formElement.querySelector('.popup__input_user_job');
 
-
-editButton.addEventListener('click', () => {
+function openPopup () {
   popup.classList.add('popup_opened');
-});
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+}
 
 function closePopup () {
   popup.classList.remove('popup_opened');
 }
-
-closePopupBtn.addEventListener('click', closePopup);
 
 function handleFormSubmit (evt) {
   evt.preventDefault();
@@ -30,6 +29,8 @@ function handleFormSubmit (evt) {
   closePopup();
 }
 
+editButton.addEventListener('click', openPopup);
+closePopupBtn.addEventListener('click', closePopup);
 formElement.addEventListener('submit', handleFormSubmit); 
 
 
