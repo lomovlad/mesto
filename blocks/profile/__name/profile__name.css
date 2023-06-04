@@ -1,5 +1,5 @@
 .profile__name {
-  margin: 0 0 6px;
+  margin: 0 0 14px;
   font-size: calc((100vw - 20rem) / (80 - 20) * (2.625 - 1.6875) + 1.6875rem);
   line-height: 1.14;
   font-weight: 500;
