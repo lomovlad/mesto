@@ -35,15 +35,15 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
   </footer>
-  <section class="popup" aria-label="Окно-редактирования">
+  <section class="popup popup-edit" aria-label="Окно-редактирования">
     <div class="popup__container">
       <form class="popup__form" name="popup-form">
         <h2 class="popup__head">Редактировать профиль</h2>
         <input type="text" name="user-name" class="popup__input popup__input_user_name">
         <input type="text" name="user-job" class="popup__input popup__input_user_job">
         <button type="submit" class="popup__save-btn">Сохранить</button>
-        <button type="button" aria-label="Закрыть" class="popup__close-btn"></button>
       </form>
+      <button type="button" aria-label="Закрыть" class="popup__close-btn"></button>
     </div>
   </section>
   <section class="popup popup-add" aria-label="Окно-добавления">
@@ -53,12 +53,12 @@
         <input type="text" name="user-name" class="popup__input popup__input_user_name" placeholder="Название">
         <input type="text" name="user-job" class="popup__input popup__input_user_job" placeholder="Ссылка на картинку">
         <button type="submit" class="popup__save-btn">Создать</button>
-        <button type="button" aria-label="Закрыть" class="popup__close-btn"></button>
       </form>
+      <button type="button" aria-label="Закрыть" class="popup__close-btn"></button>
     </div>
   </section>
   <section class="popup popup-img" aria-label="Просмотр-изображения">
-    <div class="popup-img__container">
+    <div class="popup__image-container">
       <img src="." alt="." class="popup__img-increased">
       <h2 class="popup-img__name">.</h2>
       <button type="button" aria-label="Закрыть" class="popup__close-btn"></button>
@@ -74,6 +74,7 @@
       </div>
     </li>
   </template>
+  <script src="./js/cards.js"></script>
   <script src="./js/index.js"></script>
 </body>
 </html>

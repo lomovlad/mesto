@@ -9,12 +9,12 @@ const profileJob = profile.querySelector('.profile__description');
 const templateElement = document.querySelector('#card-element').content.querySelector('.element');
 const cardList = document.querySelector('.elements__list');
 // Попап редактирования
-const popup = document.querySelector('.popup');
-const closePopupBtn = popup.querySelector('.popup__close-btn');
+const popupEdit = document.querySelector('.popup-edit');
+const btnClosePopupEdit = popupEdit.querySelector('.popup__close-btn');
 // Форма редактирования
-const formElement = popup.querySelector('.popup__form');
-const inputName = formElement.querySelector('.popup__input_user_name');
-const inputJob = formElement.querySelector('.popup__input_user_job');
+const formPopupEdit = popupEdit.querySelector('.popup__form');
+const inputName = formPopupEdit.querySelector('.popup__input_user_name');
+const inputJob = formPopupEdit.querySelector('.popup__input_user_job');
 // Попап добавления карточек
 const popupAddCard = document.querySelector('.popup-add');
 const closePopupAddBtn = popupAddCard.querySelector('.popup__close-btn');
@@ -28,66 +28,27 @@ const closePopupShowImg = popupShowImg.querySelector('.popup__close-btn');
 const popupShowImgPic = popupShowImg.querySelector('.popup__img-increased');
 const popupShowImgName = popupShowImg.querySelector('.popup-img__name');
 
-
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-// Открыть попап редактирования и передача значений со страницы
-function openPopup () {
+// Открытие попапа
+function openPopup (popup) {
   popup.classList.add('popup_opened');
+  return popup;
+};
+
+// Закрытие попапа
+function closePopup (popup) {
+  popup.classList.remove('popup_opened');
+  return popup;
+};
+
+// Установить значения инпутов из информации профиля
+function setInputValue () {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
 };
 
-// Закрытие попапа редактирования
-function closePopup () {
-  popup.classList.remove('popup_opened');
-};
-
-// Открытие попапа добавления карточек
-function openPopupAdd () {
-  popupAddCard.classList.add('popup_opened');
+// Очистка инпутов
+function clearInputFormAdd () {
   formAddElement.reset();
-};
-
-// Закрытие попапа добавления карточек
-function closePopupAdd () {
-  popupAddCard.classList.remove('popup_opened');
-};
-
-// Открытие попапа просмотра изображений
-function openPopupImg () {
-  popupShowImg.classList.add('popup_opened');
-};
-
-// Закрытие попапа просмотра изображений
-function closePopupImg () {
-  popupShowImg.classList.remove('popup_opened');
 };
 
 // Изменение полей профиля из формы редактирования
@@ -95,7 +56,7 @@ function handleFormSubmit (evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  closePopup();
+  closePopup(popupEdit);
 };
 
 // Создание и наполнение карточек 
@@ -121,12 +82,11 @@ function createCard ({name, link}) {
 
   // Открыть попап просмотра изображения
   imageCard.addEventListener('click', () => {
-    openPopupImg();
+    openPopup(popupShowImg);
     popupShowImgName.textContent = name;
     popupShowImgPic.src = link;
     popupShowImgPic.alt = name;
   });
-
   return cardElement;
 };
 
@@ -158,13 +118,30 @@ function handleFormAddSubmit (evt) {
       link: inputUrlAdd.value,
     };
     renderCard(dataCard, cardList, 'prepend');
-    closePopupAdd();
+    closePopup(popupAddCard);
 };
 
-editButton.addEventListener('click', openPopup);
-addButton.addEventListener('click', openPopupAdd);
-closePopupBtn.addEventListener('click', closePopup);
-closePopupAddBtn.addEventListener('click', closePopupAdd);
-formElement.addEventListener('submit', handleFormSubmit); 
+editButton.addEventListener('click', () => {
+  openPopup(popupEdit);
+  setInputValue();
+});
+
+btnClosePopupEdit.addEventListener('click', () => {
+  closePopup(popupEdit);
+});
+
+addButton.addEventListener('click', () => {
+  openPopup(popupAddCard);
+  clearInputFormAdd();
+});
+
+closePopupAddBtn.addEventListener('click', () => {
+  closePopup(popupAddCard);
+});
+
+closePopupShowImg.addEventListener('click', () => {
+  closePopup(popupShowImg);
+});
+
+formPopupEdit.addEventListener('submit', handleFormSubmit); 
 formAddElement.addEventListener('submit', handleFormAddSubmit);
-closePopupShowImg.addEventListener('click', closePopupImg);
