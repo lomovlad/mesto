@@ -29,48 +29,6 @@
     </section>
     <section class="elements" aria-label="Список-фотографий">
       <ul class="elements__list">
-        <li class="element">
-          <img src="./images/photo-1.jpg" alt="Вулкан-Креницына" class="element__photo">
-          <div class="element__info">
-            <h2 class="element__caption">Вулкан Креницына</h2>
-            <button type="button" aria-label="Лайк" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/photo-2.jpg" alt="Гамсутль" class="element__photo">
-          <div class="element__info">
-            <h2 class="element__caption">Гамсутль, Дагестан</h2>
-            <button type="button" aria-label="Лайк" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/photo-3.jpg" alt="Город-мёртвых" class="element__photo">
-          <div class="element__info">
-            <h2 class="element__caption">«Город мёртвых», Северная Осетия-Алания</h2>
-            <button type="button" aria-label="Лайк" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/photo-4.jpg" alt="Кутхины-Баты" class="element__photo">
-          <div class="element__info">
-            <h2 class="element__caption">Кутхины Баты, Камчатка</h2>
-            <button type="button" aria-label="Лайк" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/photo-5.jpg" alt="Чарские-пески" class="element__photo">
-          <div class="element__info">
-            <h2 class="element__caption">Чарские пески, Забайкалье</h2>
-            <button type="button" aria-label="Лайк" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="./images/photo-6.jpg" alt="Оймякон" class="element__photo">
-          <div class="element__info">
-            <h2 class="element__caption">Оймякон, Якутия</h2>
-            <button type="button" aria-label="Лайк" class="element__like"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
@@ -88,6 +46,34 @@
       </form>
     </div>
   </section>
+  <section class="popup popup-add" aria-label="Окно-добавления">
+    <div class="popup__container">
+      <form class="popup__form" name="popup-form">
+        <h2 class="popup__head">Новое место</h2>
+        <input type="text" name="user-name" class="popup__input popup__input_user_name" placeholder="Название">
+        <input type="text" name="user-job" class="popup__input popup__input_user_job" placeholder="Ссылка на картинку">
+        <button type="submit" class="popup__save-btn">Создать</button>
+        <button type="button" aria-label="Закрыть" class="popup__close-btn"></button>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup-img" aria-label="Просмотр-изображения">
+    <div class="popup-img__container">
+      <img src="." alt="." class="popup__img-increased">
+      <h2 class="popup-img__name">.</h2>
+      <button type="button" aria-label="Закрыть" class="popup__close-btn"></button>
+    </div>
+  </section>
+  <template id="card-element">
+    <li class="element">
+      <img src="." alt="." class="element__photo">
+      <div class="element__info">
+        <h2 class="element__caption"></h2>
+        <button type="button" aria-label="Лайк" class="element__like"></button>
+        <button type="button" aria-label="Удалить" class="element__delete"></button>
+      </div>
+    </li>
+  </template>
   <script src="./js/index.js"></script>
 </body>
 </html>

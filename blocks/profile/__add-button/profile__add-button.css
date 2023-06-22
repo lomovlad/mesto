@@ -9,6 +9,7 @@
   background-position: center;
   padding: 0;
   cursor: pointer;
+  transition: opacity .2s ease-in;
 }
 
 .profile__add-button:hover {

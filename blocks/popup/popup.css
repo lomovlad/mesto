@@ -6,7 +6,9 @@
   height: 100%;
   z-index: 5;
   background-color: rgba(0, 0, 0, .5);
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   justify-content: center;
   align-items: center;
+  transition: visability .2s, opacity .2s linear;
 }
