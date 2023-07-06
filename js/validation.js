@@ -18,7 +18,6 @@ function hideError (inputElement, errorElement, config) {
   inputElement.classList.remove(config.inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
 };
-
 // Блокировка кнопки сабмита
 function disableButton (button, config) {
   button.disabled = 'disabled';
@@ -40,6 +39,15 @@ function checkInputValidity (inputElement, formElement, config) {
   } else {
     hideError(inputElement, errorElement, config);
   }
+};
+
+// Очистка инпутов от ошибок
+function clearInputError (formElement, config) {
+  const inputList = formElement.querySelectorAll(config.inputSelector);
+  [...inputList].forEach(function (inputElement) {
+    const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
+    hideError(inputElement, errorElement, config);
+  });
 };
 
 // Смена состояния кнопки сабмит
