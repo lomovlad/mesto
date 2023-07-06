@@ -1,4 +1,5 @@
 const profile = document.querySelector('.profile');
+const popupList = document.querySelectorAll('.popup');
 // Кнопки
 const editButton = profile.querySelector('.profile__edit-button');
 const addButton = profile.querySelector('.profile__add-button');
@@ -42,8 +43,11 @@ function closePopup (popup) {
 
 // Установить значения инпутов из информации профиля
 function setInputValue () {
+  let event = new Event('input');
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
+  inputName.dispatchEvent(event);
+  inputJob.dispatchEvent(event);
 };
 
 // Очистка инпутов
@@ -120,6 +124,29 @@ function handleFormAddSubmit (evt) {
     renderCard(dataCard, cardList, 'prepend');
     closePopup(popupAddCard);
 };
+
+// Закрытие попапа по Esc 
+function closePopupByEsc (evt) {
+  if (evt.key === "Escape") {
+    [...popupList].forEach(function (popup) {
+      closePopup(popup);
+    });
+  }
+};
+
+// Закрытие попапа по клике на оверлэй
+function closePopupOverlay (evt) {
+  const target = evt.target;
+  if (target.classList.contains('popup')) {
+    [...popupList].forEach(function (popup) {
+      closePopup(popup);
+    });
+  }
+};
+
+document.addEventListener('click', closePopupOverlay);
+
+document.addEventListener('keydown', closePopupByEsc);
 
 editButton.addEventListener('click', () => {
   openPopup(popupEdit);
